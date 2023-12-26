@@ -18,9 +18,9 @@
     </ul>
     </header>
     <form action="../../assets/php/validaLogin.php" method="post">
-        <h1>Sistema professores</h1>
+        <h3>Sou professor</h3>
 <div class="input-data">
-         <label for="email">Usuario</label>
+         <label for="email">Email</label>
          <input type="text" placeholder="Digite seu e-mail" name="email">
         </div>
         <div class="input-data">

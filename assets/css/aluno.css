@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+    margin: 30px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 40px auto;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+}
+
+.dados input,
+select {
+    height: 30px;
+}
+
+.dados label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.dados select option {
+    padding: 5px;
+}
+
+textarea {
+    max-width: 400px;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    height: 40px;
+    background: #50514F;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+}

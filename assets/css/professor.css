@@ -15,7 +15,7 @@
 
 
 form {
-    background-color: #247BA0;
+    background-color: #50514F;
     width: 400px;
     height: 400px;
     display: flex;
@@ -23,6 +23,7 @@ form {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    margin: 30px auto;
 }
 
 .input-data {
@@ -33,7 +34,11 @@ form {
 
 }
 
-h1,
+h3 {
+    font-size: 28px;
+}
+
+h3,
 label {
     color: var(--background--principal);
 }

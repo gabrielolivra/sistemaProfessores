@@ -16,6 +16,7 @@ if ($conn->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/aluno.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <title>Aluno</title>
 </head>
@@ -36,6 +37,7 @@ if ($conn->connect_error) {
     <div class="dados">
     <label for="usuario">Selecione um professor:</label>
     <select name="professor" id="usuario" required>
+        <option value="" disabled>Selecione um professor</option>
         <?php
         // Preenche as opções do select com dados do banco de dados
         while ($row = $result->fetch_assoc()) {
@@ -53,52 +55,6 @@ if ($conn->connect_error) {
 
 </body>
 </html>
-
 <?php
-// Fecha a conexão com o banco de dados
 $conn->close();
 ?>
-
-<style>
-    h1{
-        text-align:center;
-        margin:30px auto;
-    }
-    form{
-        display:flex;
-        flex-direction:column;
-        width:400px;
-        margin:20px auto;
-    }
-    .dados{
-        display:flex;
-        flex-direction:column;
-    }
-
-    .dados input, select{
-        height:30px;
-    }
-    .dados label{
-        font-size:16px;
-        margin-bottom:10px;
-    }
-    .dados select option{
-        padding:5px;
-    }
-     textarea{
-        max-width:400px;
-    }
-
-    input[type="submit"]{
-        margin-top: 10px;
-        height:40px;
-        background:#50514F;
-        color:white;
-        cursor:pointer;
-        font-size:16px;
-        font-weight:600;
-        border-radius:10px;
-        border:none;
-    }
-   
-</style>

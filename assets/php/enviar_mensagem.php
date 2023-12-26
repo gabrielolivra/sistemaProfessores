@@ -23,11 +23,17 @@ require '../../assets/php/conexao.php';
 $conn = conectarAoBanco();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Utiliza declaração preparada para evitar injeção de SQL
-    $stmt = $conn->prepare("INSERT INTO mensagens (dtEnvio, idProfessor, nomeAluno) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO mensagens (dtEnvio, idProfessor, nomeAluno, mensagem, status) VALUES (?, ?, ?, ?, ?)");
 
     // Vincula os parâmetros
-    $stmt->bind_param("sss", $nomeAluno, $professor, $mensagem);
+    $stmt->bind_param("sssss", $dtEnvio, $professor, $nomeAluno, $mensagem, $status);
+    date_default_timezone_set('America/Sao_Paulo');
 
+// Cria um objeto DateTime representando a data e hora atual
+    $dataHoraLocal = new DateTime();
+    $status = 0;
+// Obtém a data e hora local formatada
+    $dtEnvio = $dataHoraLocal->format('Y-m-d H:i:s');
     // Obtém os valores do formulário e trata caracteres especiais
     $nomeAluno = htmlspecialchars($_POST["nome_aluno"], ENT_QUOTES, 'UTF-8');
     $professor = htmlspecialchars($_POST["professor"], ENT_QUOTES, 'UTF-8');

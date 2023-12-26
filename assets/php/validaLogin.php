@@ -39,17 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             } else {
                 $_SESSION['erro'] = "Senha incorreta!";
-                header("Location:../../professor.php");
+                header("Location:../../views/public/professor.php");
                 exit();
             }
         } else {
             $_SESSION['erro'] = "Usuário não encontrado!";
-            header("Location:../../professor.php");
+            header("Location:../../views/public/professor.php");
             exit();
         }
     } else {
         $_SESSION['erro'] = "Erro ao buscar no banco de dados: " . $stmt->error;
-        header("Location:../../professor.php");
+        header("Location:../../views/public/professor.php");
         exit();
     }
 
