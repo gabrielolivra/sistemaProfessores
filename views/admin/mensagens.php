@@ -11,6 +11,7 @@
         <ul>
             <a href="../../views/admin/home.php"><li>Home</li></a>
             <a href="../../views/admin/cadastro_professor.php"><li>Cadastro de professor</li></a>
+            <a href="../../views/admin/lista_professores.php"><li>Lista de professores</li></a>
             <a href="../../views/admin/mensagens.php"><li>Lista de Mensagens</li></a>
             <a href="../../assets/php/logout.php"><li>Sair</li></a>
         </ul>

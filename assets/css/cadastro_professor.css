@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+    margin: 30px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+form input {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+}
+
+form input[type="submit"] {
+    color: white;
+    background-color: #50514F;
+    cursor: pointer;
+}
