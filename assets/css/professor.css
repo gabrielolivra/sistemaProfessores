@@ -12,14 +12,7 @@
     font-family: Arial;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 120px auto;
-    background-color: var(--background--principal)
-}
+
 
 form {
     background-color: #247BA0;
@@ -68,9 +61,4 @@ input[type="submit"] {
     margin-top: 10px;
 
 
-}
-
-img {
-    width: 200px;
-    height: 180px;
 }
