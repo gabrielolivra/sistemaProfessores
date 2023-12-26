@@ -44,3 +44,18 @@ input[type="submit"] {
     border-radius: 10px;
     border: none;
 }
+
+@media only screen and (max-width: 768px) {
+
+    form {
+        width: 80%;
+    }
+
+    select option {
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/cadastro_professor.css">
+    <script src="../../assets/js/funcoes.js"></script>
     <title>Cadastro professor</title>
 </head>
 <body>
-    <header>
-        <ul>
+<header>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
             <a href="../../views/admin/home.php"><li>Home</li></a>
             <a href="../../views/admin/cadastro_professor.php"><li>Cadastro de professor</li></a>
             <a href="../../views/admin/lista_professores.php"><li>Lista de professores</li></a>

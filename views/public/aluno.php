@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="../../assets/js/funcoes.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/aluno.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
@@ -22,7 +23,8 @@ if ($conn->connect_error) {
 </head>
 <body>
 <header>
-    <ul>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
             <a href="../../index.php"><li>Home</li></a>
             <a href="professor.php"><li>Sou professor</li></a>
             <a href="aluno.php"><li>Sou aluno</li></a>

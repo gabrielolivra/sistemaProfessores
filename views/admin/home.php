@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/homeAdmin.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
+    <script src="../../assets/js/funcoes.js"></script>
     <title>Home</title>
 </head>
 <body>
-    <header>
-    <ul>
+<header>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
             <a href="../../views/admin/home.php"><li>Home</li></a>
             <a href="../../views/admin/cadastro_professor.php"><li>Cadastro de professor</li></a>
             <a href="../../views/admin/lista_professores.php"><li>Lista de professores</li></a>
             <a href="../../views/admin/mensagens.php"><li>Lista de Mensagens</li></a>
             <a href="../../assets/php/logout.php"><li>Sair</li></a>
-    </ul>
+        </ul>
     </header>
     <h1>Home - admin</h1>
 </body>

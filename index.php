@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index.css">
+    <script src="../../assets/js/funcoes.js"></script>
     <link rel="stylesheet" href="assets/css/header.css">
     <title>Tela inicial</title>
 </head>
 <body>
 <header>
-    <ul>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
             <a href="index.php"><li>Home</li></a>
             <a href="views/public/professor.php"><li>Sou professor</li></a>
             <a href="views/public/aluno.php"><li>Sou aluno</li></a>

@@ -43,3 +43,9 @@ section {
 .container p:hover {
     color: #fffcff;
 }
+
+@media only screen and (max-width: 355px) {
+    .container {
+        width: 250px;
+    }
+}

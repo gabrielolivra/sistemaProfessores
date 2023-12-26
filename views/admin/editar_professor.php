@@ -32,11 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" href="../../assets/img/logo-sidebar.png" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../assets/js/funcoes.js"></script>
     <title>Editar usuario</title>
 </head>
 <body>
 <header>
-        <ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
             <a href="../../views/admin/home.php"><li>Home</li></a>
             <a href="../../views/admin/cadastro_professor.php"><li>Cadastro de professor</li></a>
             <a href="../../views/admin/lista_professores.php"><li>Lista de professores</li></a>
