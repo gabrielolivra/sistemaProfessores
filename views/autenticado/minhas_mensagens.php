@@ -36,8 +36,8 @@ if ($conn->connect_error) {
 // Consulta SQL para obter mensagens filtradas pelo ID do usuário
 $sql = "SELECT  m.nomeAluno, u.nome, m.mensagem, m.dtEnvio, m.id,
 CASE 
-    WHEN m.status = 0 THEN 'Aguardando'
-    WHEN m.status = 1 THEN 'Aprovado'
+    WHEN m.status = 0 THEN 'Pendente'
+    WHEN m.status = 1 THEN 'Respondido'
     ELSE m.status
 END AS status_descricao
  FROM mensagens m INNER JOIN usuarios u ON  m.idProfessor = u.id  WHERE idProfessor = $usuario_id and is_admin = 0 order by m.dtEnvio desc ";
@@ -54,15 +54,15 @@ while ($row = $result->fetch_assoc()) {
             
             <div class='btns'>
             <!-- Botão Aprovar -->
-            <form action='aprovar_mensagem.php' method='post'>
+            <form action='../../assets/php/aprovar_mensagem.php' method='post'>
                 <input type='hidden' name='mensagem_id' value='{$row['id']}'>
                 <button type='submit' id='aprovar' class='btn'>Aprovar</button>
             </form>
             <a href='editar_mensagem.php?id={$row['id']}' id='editar'  class='btn'>Editar</a>
             <!-- Botão Excluir -->
-            <form action='excluir_mensagem.php' method='post'>
+            <form action='../../assets/php/excluir_mensagem.php' method='post' onsubmit='return confirm(\"Deseja realmente excluir?\")'>
                 <input type='hidden' name='mensagem_id' value='{$row['id']}'>
-                <button type='submit' id='excluir'  class='btn'>Excluir</button>
+                <button type='submit' id='excluir'  class='btn' >Excluir</button>
             </form>
             </div>
         </div>";
@@ -83,11 +83,12 @@ while ($row = $result->fetch_assoc()) {
     .container-mensagens-recebidas{
         display:flex;
         flex-direction:column;
-        justify-content:flex-start;
+        justify-content:space-between;
         background:#333;
         border-radius:10px;
         color:white;
         padding:10px;
+        width: 250px;
         margin:10px;
     }
 

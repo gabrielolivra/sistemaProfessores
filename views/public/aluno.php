@@ -50,7 +50,7 @@ if ($conn->connect_error) {
     </div>
     <div class="dados">
         <label for="nome_aluno">Digite sua mensagem</label>
-        <textarea name="mensagem" required></textarea>
+        <textarea name="mensagem" maxlength="200" required></textarea>
     </div>
     <input type="submit" value="Enviar">
 </form>
