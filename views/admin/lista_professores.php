@@ -15,7 +15,7 @@ if (!isAdmin()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/homeAdmin.css">
+    <link rel="stylesheet" href="../../assets/css/list_professores.css">
     <script src="../../assets/js/funcoes.js"></script>
     <link rel="stylesheet" href="../../assets/css/header.css">
     <title>Lista de professores</title>
@@ -33,7 +33,7 @@ if (!isAdmin()) {
     </header>
     <h1>Lista de professores</h1>
 </body>
-<table border="1">
+        <table border="1">
             <tr>
                 <th>Nome</th>
                 <th>Login</th>
@@ -41,54 +41,30 @@ if (!isAdmin()) {
                 <th>Ação</th>
             </tr>
             <?php
-     $conn = conectarAoBanco();
-     $result = mysqli_query($conn, "SELECT * FROM usuarios where is_admin = 0");
-     while ($row = mysqli_fetch_assoc($result)) {
-         echo "<tr>";
-         echo "<td>{$row['nome']}</td><td>{$row['email']}</td><td>{$row['whatsapp']}</td>";
-         echo "<td class='btn-action'>";
-         echo "<form method='post' action='../../views/admin/editar_professor.php'>"; 
-         echo "<input type='hidden' name='usuario_id' value='{$row['id']}'>";
-         echo "<input type='submit' value='Editar'   style='background:green; color:white;'>";
-         echo "</form>";
+        $result = mysqli_query($conn, "SELECT * FROM usuarios where is_admin = 0");
+        while ($row = mysqli_fetch_assoc($result)) {
+        $nomeProfessor = $row['nome'];
+        $email = $row['email'];
+        $whatsapp = $row['whatsapp'];
+        $id_usuario = $row['id'];
+         ?>
 
-         echo "<form method='post' action='../../assets/php/excluir_usuario.php' onsubmit='return confirm(\"Deseja realmente excluir o {$row['nome']}?\")'>"; // Substitua 'excluir_usuario.php' pelo script que você usará para excluir
-         echo "<input type='hidden' name='usuario_id' value='{$row['id']}'>";
-         echo "<input type='submit' value='Excluir' style='background:red; color:white;' >";
-         echo "</form>";
-         echo "</td>";
-         echo "</tr>";
-     }
-    ?>
+        <tr>
+         <td><?php echo $nomeProfessor ?></td>
+         <td><?php echo $email ?></td>
+         <td><?php echo $whatsapp ?></td>
+         <td class='btn-action'>
+         <form method='post' action='../../views/admin/editar_professor.php'>
+         <input type='hidden' name='usuario_id' value='<?php echo $id_usuario?>'>
+         <input type='submit' value='Editar'   style='background:green; color:white;'>
+         </form>
+         <form method='post' action='../../assets/php/excluir_usuario.php' onsubmit='return confirm("Deseja realmente excluir o <?php echo $nomeProfessor?>?")'>
+         <input type='hidden' name='usuario_id' value='<?php echo $id_usuario?>'>
+         <input type='submit' value='Excluir' style='background:red; color:white;' >
+         </form>
+         </td>
+         </tr>
+
+    <?php } ?>
         </table>
 </html>
-
-<style>
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
-
-th,
-td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-.btn-action{
-   
-}
-form input[type="submit"]{
-    width:100px;
-    height:25px;
-    border-radius:5px;
-    margin:5px;
-    border:none;
-}
-</style>
