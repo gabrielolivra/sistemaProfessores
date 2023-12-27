@@ -15,7 +15,6 @@
 </body>
 </html>
 <style>
-    /* Substitua 'SuaFonte' pelo nome real da sua fonte */
     .swal2-popup {
         font-family:Roboto , sans-serif;
     }
@@ -33,15 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tel = $_POST['tel'];
     $admin = $_POST['admin'];
 
-    // Conecta ao banco de dados (substitua com suas configurações)
     $conn = conectarAoBanco();
 
-    // Verifica se a conexão foi estabelecida com sucesso
     if ($conn->connect_error) {
         die("Erro na conexão com o banco de dados: " . $conn->connect_error);
     }
 
-    // Verifica se o e-mail já está cadastrado
     $checkEmailQuery = "SELECT * FROM usuarios WHERE email = ?";
     $checkEmailStmt = $conn->prepare($checkEmailQuery);
     $checkEmailStmt->bind_param("s", $login);
@@ -62,9 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
         </script>';
     } else {
-        // E-mail não cadastrado, proceder com a inserção
 
-        // Criptografa a senha
         $hashedPassword = password_hash($senha, PASSWORD_DEFAULT);
 
         $insertQuery = "INSERT INTO usuarios (nome, email, senha, whatsapp, is_admin) VALUES (?, ?, ?, ?, ?)";
@@ -98,7 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Fecha as conexões com o banco de dados
     $checkEmailStmt->close();
     $insertStmt->close();
     $conn->close();

@@ -64,7 +64,7 @@ if (!isAdmin()) {
                     <input type='hidden' name='mensagem_id' value='<?php echo $id_mensagem ?>'>
                     <button type='submit' id='aprovar' class='btn'>Aprovar</button>
                 </form>
-                <a href='editar_mensagem.php?id=<?php echo $id_mensagem ?>' id='editar'  class='btn'>Editar</a>
+                <a href='../../views/admin/editar_mensagem.php?id=<?php echo $id_mensagem ?>' id='editar'  class='btn'>Editar</a>
                 <form action='../../assets/php/excluir_mensagem_admin.php' method='post' onsubmit='return confirm(\"Deseja realmente excluir?\")'>
                     <input type='hidden' name='mensagem_id' value='<?php echo $id_mensagem ?>'>
                     <button type='submit' id='excluir'  class='btn' >Excluir</button>
