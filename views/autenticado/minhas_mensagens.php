@@ -29,46 +29,53 @@ $usuario_id = $_SESSION['user_id'];
     <h1>Minhas mensagens</h1>
     <section>
     <?php 
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+    if ($conn->connect_error) {
+        die("Conexão falhou: " . $conn->connect_error);
+    }
 
-// Consulta SQL para obter mensagens filtradas pelo ID do usuário
-$sql = "SELECT  m.nomeAluno, u.nome, m.mensagem, m.dtEnvio, m.id,
-CASE 
-    WHEN m.status = 0 THEN 'Pendente'
-    WHEN m.status = 1 THEN 'Respondido'
-    ELSE m.status
-END AS status_descricao
- FROM mensagens m INNER JOIN usuarios u ON  m.idProfessor = u.id  WHERE idProfessor = $usuario_id and is_admin = 0 order by m.dtEnvio desc ";
-$result = $conn->query($sql);
+    // Consulta SQL para obter mensagens filtradas pelo ID do usuário
+    $sql = "SELECT  m.nomeAluno, u.nome, m.mensagem, m.dtEnvio, m.id,
+    CASE 
+        WHEN m.status = 0 THEN 'Pendente'
+        WHEN m.status = 1 THEN 'Respondido'
+        ELSE m.status
+    END AS status_descricao
+     FROM mensagens m INNER JOIN usuarios u ON  m.idProfessor = u.id  WHERE idProfessor = $usuario_id and is_admin = 0 order by m.dtEnvio desc ";
+    $result = $conn->query($sql);
 
-// Exibe as opções do select com as mensagens filtradas
-while ($row = $result->fetch_assoc()) {
-    echo "<div class='container-mensagens-recebidas'>
-            <p>De: {$row['nomeAluno']} </p>
-            <p>Para: {$row['nome']} </p>
-            <p>Mensagem: {$row['mensagem']}</p>
-            <p>Data: {$row['dtEnvio']}</p>
-            <p>Status: {$row['status_descricao']}</p>
-            
-            <div class='btns'>
-            <!-- Botão Aprovar -->
-            <form action='../../assets/php/aprovar_mensagem.php' method='post'>
-                <input type='hidden' name='mensagem_id' value='{$row['id']}'>
-                <button type='submit' id='aprovar' class='btn'>Aprovar</button>
-            </form>
-            <a href='editar_mensagem.php?id={$row['id']}' id='editar'  class='btn'>Editar</a>
-            <!-- Botão Excluir -->
-            <form action='../../assets/php/excluir_mensagem.php' method='post' onsubmit='return confirm(\"Deseja realmente excluir?\")'>
-                <input type='hidden' name='mensagem_id' value='{$row['id']}'>
-                <button type='submit' id='excluir'  class='btn' >Excluir</button>
-            </form>
+    // Exibe as opções do select com as mensagens filtradas
+    while ($row = $result->fetch_assoc()) {
+        $nomeAluno = $row['nomeAluno'];
+        $nomeProfessor = $row['nome'];
+        $mensagem = $row['mensagem'];
+        $data = $row['dtEnvio'];
+        $status = $row['status_descricao'];
+        $id_mensagem = $row['id'];
+        ?>
+        <div class="container-mensagens-recebidas">
+            <p>De: <?php echo $nomeAluno; ?> </p>
+            <p>Para: <?php echo $nomeProfessor ?> </p>
+            <p>Mensagem: <?php echo $mensagem ?></p>
+            <p>Data: <?php echo $data ?></p>
+            <p>Status: <?php echo $status ?></p>
+            <div class="btns">
+                <form action='../../assets/php/aprovar_mensagem.php' method='post'>
+                    <input type='hidden' name='mensagem_id' value='<?php echo $id_mensagem ?>'>
+                    <button type='submit' id='aprovar' class='btn'>Aprovar</button>
+                </form>
+                <a href='editar_mensagem.php?id=<?php echo $id_mensagem ?>' id='editar'  class='btn'>Editar</a>
+                <form action='../../assets/php/excluir_mensagem.php' method='post' onsubmit='return confirm(\"Deseja realmente excluir?\")'>
+                    <input type='hidden' name='mensagem_id' value='<?php echo $id_mensagem ?>'>
+                    <button type='submit' id='excluir'  class='btn' >Excluir</button>
+                </form>
             </div>
-        </div>";
-}
-?>
-    </section>
+        </div>
+
+    <?php
+    }
+    ?>
+</section>
+
 </body>
 </html>
 <style>
