@@ -12,8 +12,8 @@ $usuario_id = $_SESSION['user_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/homeAdmin.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/minhas_mensagens.css">
     <script src="../../assets/js/funcoes.js"></script>
     <title>Minhas mensagens</title>
 </head>
@@ -72,64 +72,5 @@ while ($row = $result->fetch_assoc()) {
 </body>
 </html>
 <style>
-    *{
-        text-decoration:none;
-
-    }
-    section{
-        display:flex;
-        flex-wrap:wrap;
-    }
-    .container-mensagens-recebidas{
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-        background:#333;
-        border-radius:10px;
-        color:white;
-        padding:10px;
-        width: 250px;
-        margin:10px;
-    }
-
-    .container-mensagens-recebidas a{
-        margin:15px auto;
-    }
-
-    .btns{
-        display:flex;
-        justify-content:space-around;
-        align-items:center;
-    }
-    .btn{
-        padding:5px;
-        border-radius:3px;
-        border:none;
-        color:white;
-        font-size:14px;
-        cursor:pointer;
-
-    }
-    #aprovar{
-        background:green;
-        
-    }
-
-    #excluir{
-        background:red;
-        
-    }
-    #editar{
-        background:orange;
-        
-    }
-
-    
-@media only screen and (max-width: 768px) {
-    section{
-        display:flex;
-        justify-content:center;
-    }
-
-}
+  
 </style>
