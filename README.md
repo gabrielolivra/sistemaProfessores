@@ -8,8 +8,8 @@ App SistemaProfessores
 6. importar o arquivo sistemaprofessores.sql
 7. acessar localhost/sistemaprofessores
 8. login do admin
-   8.1 usuario: root
-   8.2 senha : root
+usuario: root
+senha : root
 
 Na tela do admin 
 1. pode cadastrar, editar e excluir o professor.
