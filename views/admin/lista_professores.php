@@ -58,7 +58,7 @@ if (!isAdmin()) {
          <input type='hidden' name='usuario_id' value='<?php echo $id_usuario?>'>
          <input type='submit' value='Editar'   style='background:green; color:white;'>
          </form>
-         <form method='post' action='../../assets/php/excluir_usuario.php' onsubmit='return confirm("Deseja realmente excluir o <?php echo $nomeProfessor?>?")'>
+         <form method='post' action='../../assets/php/excluir_professor.php' onsubmit='return confirm("Deseja realmente excluir o <?php echo $nomeProfessor?>?")'>
          <input type='hidden' name='usuario_id' value='<?php echo $id_usuario?>'>
          <input type='submit' value='Excluir' style='background:red; color:white;' >
          </form>
