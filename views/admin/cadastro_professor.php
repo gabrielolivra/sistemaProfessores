@@ -1,3 +1,15 @@
+<?php
+session_start();
+require '../../assets/php/conexao.php';
+require '../../assets/php/verificaAdmin.php';
+$conn = conectarAoBanco();
+
+// Verifique se o usuário é um administrador
+if (!isAdmin()) {
+    header("Location: ../../views/autenticado/home.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +31,7 @@
             <a href="../../assets/php/logout.php"><li>Sair</li></a>
         </ul>
     </header>
-    <h1>Home - cadastro professor</h1>
+    <h1>Cadastro de professor</h1>
     <form method="post" action="../../assets/php/valida_cadastro_professor.php">
             <input type="text" placeholder="Digite o nome do professor" name="nome" required>
             <input type="text" placeholder="Digite o email de acesso do professor" name="login" required>
@@ -30,15 +42,3 @@
         </form>
 </body>
 </html>
-<?php
-session_start();
-require '../../assets/php/conexao.php';
-require '../../assets/php/verificaAdmin.php';
-$conn = conectarAoBanco();
-
-// Verifique se o usuário é um administrador
-if (!isAdmin()) {
-    header("Location: ../../views/autenticado/home.php");
-    exit();
-}
-?>
