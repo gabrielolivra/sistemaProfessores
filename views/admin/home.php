@@ -19,7 +19,7 @@
             <a href="../../assets/php/logout.php"><li>Sair</li></a>
         </ul>
     </header>
-    <h1>Home - admin</h1>
+    <h1>Admin - home</h1>
 </body>
 </html>
 <?php
