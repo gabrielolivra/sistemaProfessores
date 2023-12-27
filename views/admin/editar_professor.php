@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <link rel="icon" href="../../assets/img/logo-sidebar.png" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/editar_professor.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../assets/js/funcoes.js"></script>
     <title>Editar usuario</title>
@@ -77,71 +78,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 <style>
    
-        h2 {
-            color: #333;
-            text-align:center;
-            margin:30px auto;
-        }
-
-        section {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            margin: 20px;
-            text-align: center;
-            margin:10px auto;
-        }
-
-        .group-data {
-            display:flex;
-            flex-direction:column;
-            align-items:start;
-        }
-
-        label {
-            
-            margin: 5px;
-            color: #555;
-
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin:5px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width:100px;
-            margin-top:10px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        button.back-btn {
-            background-color: #808080;
-            margin-top: 10px;
-        }
-
-        button.back-btn:hover {
-            background-color: #555;
-        }
     </style>
